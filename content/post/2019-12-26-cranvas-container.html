@@ -1,0 +1,77 @@
+---
+title: "Dockerized Cranvas"
+author: "Misha Lisovich"
+date: 2019-12-26
+categories: ["R", "datavis"]
+tags: ["R", "rlang", "datavis", "interactive visualization", "eda"]
+---
+
+
+
+<p><strong>TLDR</strong>: The legendary <a href="https://github.com/ggobi/cranvas">Cranvas</a> dataviz library, now in a <a href="https://img.shields.io/docker/cloud/build/mul118/docker-cranvas-ggobi">Docker container</a>.</p>
+<p>Interactive statistical graphics are incredibly useful both as an Interactive Exploartory Data Analysis (IEDA) tool and as a visual ‘debugger’ for building machine learning models and complex data science products such as search/recommenders, text tagging, custom playlist generators, etc. Unfortunately, it’s also somewhat of a <a href="https://yihui.name/en/2017/12/good-old-ideas/">lost art</a>, and while modern interactive graphics alternatives exist via <a href="https://shiny.rstudio.com/articles/plot-interaction.html">interactive Shiny plots</a>, <a href="https://plotly-r.com/">linked Plotly graphics</a>, etc, in my experience none have approached the power, simplicity, and performance provided by Cranvas’s old-school (Desktop/Qt) linked IEDA primitives.</p>
+<p>Part of the reason for Cranvas’s lack of reach is the high barrier to entry - it’s <a href="https://github.com/tsieger/idendro/wiki">devilishly complex to install</a>, and virtually impossible on latest MacOS and Windows systems.</p>
+<p>This project aims to lower the barrier to entry by:</p>
+<ol style="list-style-type: decimal">
+<li>Wrapping Cranvas &amp; GGobi in a stable, containerized Linux GUI environment that can be accessed through the browser and run on any OS with Docker installed, and</li>
+<li>Handling the complex Cranvas build process, providing an immediately-useful base image that can also be modified/extended.</li>
+</ol>
+<p>While Cranvas may not be ‘the future’, the IEDA ideas behind it definitely are, and it’s uniquely useful at present. It is the my hope that this project can introduce practicing Data Scientists &amp; Analysts to the benefits and potential of IEDA, and play a (small) role in incorporating it into the next generation of DS platforms.</p>
+<div id="the-project" class="section level2">
+<h2>The Project</h2>
+<p>The project is bundled into a batteries-included Docker image containing:</p>
+<ul>
+<li>A browser-accessible Ubuntu installation</li>
+<li>Rstudio Server with pre-installed tidyverse packages</li>
+<li><a href="https://github.com/ggobi/cranvas">Cranvas</a> interactive exploratory data analysis library</li>
+<li><a href="http://ggobi.org/">GGobi</a>/<a href="https://github.com/ggobi/rggobi">rggobi</a> high-dimensional visualization program.</li>
+<li><a href="https://github.com/tsieger/idendro">idendro</a> Cranvas extension enabling interactive exploration of heirarchical clustering dendrograms.</li>
+</ul>
+</div>
+<div id="quick-start" class="section level2">
+<h2>Quick Start</h2>
+<p>Install Docker. Then, from command line, run</p>
+<pre class="bash"><code>docker run -itd -p 6080:80 -v [YOUR LOCAL WORKING DIRECTORY]:/root/work mul118/docker-cranvas-ggobi</code></pre>
+<p>The startup process will take about <em>5 minutes</em> the first time. Once the container is running, browse to <a href="http://127.0.0.1:6080/" class="uri">http://127.0.0.1:6080/</a>. Open the terminal (Start &gt; System Tools &gt; LXTerminal) and type:</p>
+<pre class="bash"><code>/startup_cranvas_patch.sh</code></pre>
+<p>When the patch finishes applying, open Rstudio and attach the cranvas library. Enjoy!</p>
+</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<div id="cranvas" class="section level3">
+<h3>Cranvas</h3>
+<p>As far as I know, Cranvas does not have a cohesive vignette (a large part of its hipster charm). My recommendation is to go through the Mondrian tips tutorial slides and use the provided companion code reproduce the tutorial using Cranvas.</p>
+<ul>
+<li>Tutorial: <a href="http://www.interactivegraphics.org/Slides.html">slides</a> | <a href="https://www.github.com/mul118/docker-cranvas-ggobi/examples/cranvas_intro.R">code</a></li>
+<li><a href="https://www.github.com/mul118/docker-cranvas-ggobi/examples/cranvas_cheatsheet.Rmd">Cranvas Cheatsheet</a></li>
+<li><a href="https://www.rdocumentation.org/packages/cranvas">Package Docs</a> - see qscatter, qhist, qbar, qparallel for intro examples</li>
+<li><a href="https://arxiv.org/pdf/1409.7256.pdf">Cranvas Overview Paper</a></li>
+</ul>
+</div>
+</div>
+<div id="extensions" class="section level1">
+<h1>Extensions:</h1>
+<ul>
+<li><a href="https://pdfs.semanticscholar.org/f8b5/26fb936fc25ca10c004deb4db667c29f9c5a.pdf">Qtime</a>: Cranvas Time-series interactions (see p 32)</li>
+<li><em>Visualizing Statistical Models</em>: <a href="http://had.co.nz/stat645/model-vis.pdf">paper</a> | <a href="https://www.github.com/mul118/docker-cranvas-ggobi">Cranvas code</a></li>
+<li><em>Idendro</em>: <a href="https://github.com/tsieger/idendro">Intro &amp; Sample Code</a> | <a href="https://github.com/tsieger/idendro/blob/master/inst/doc/idendro.pdf">Full Vignette</a></li>
+<li>Qtour - high-dimensional tours</li>
+<li>Qmval - missing values</li>
+</ul>
+<div id="statistical-graphics" class="section level3">
+<h3>Statistical Graphics</h3>
+<ul>
+<li><a href="http://mondrian.theusrus.de/">Mondrian</a> - Interactive dynamic graphics GUI
+<ul>
+<li>Tutorial/case studies: <a href="http://www.interactivegraphics.org/Slides.html">slides</a></li>
+<li>Book: <a href="http://mondrian.theusrus.de/">Dynamic Graphics for Interactive Data Exploration</a></li>
+</ul></li>
+<li><em>GGobi</em>: <a href="http://www.ggobi.org/docs">Resources</a> | <a href="http://www.ggobi.org/docs/manual.pdf">Manual</a> | <a href="http://www.ggobi.org/rggobi/introduction.pdf">Rggobi Intro</a></li>
+</ul>
+</div>
+<div id="build" class="section level2">
+<h2>Build</h2>
+<p>To build the docker image, navigate to the root project directory and type:</p>
+<pre class="bash"><code>docker build -t docker-cranvas-ggobi .</code></pre>
+</div>
+</div>

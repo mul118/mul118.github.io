@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Riding Backwards</title>
+    <link>/tags/r/</link>
+    <description>Recent content in R on Riding Backwards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dockerized Cranvas</title>
+      <link>/2019/12/26/dockerized-cranvas/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/12/26/dockerized-cranvas/</guid>
+      <description>TLDR: The legendary Cranvas dataviz library, now in a Docker container.
+Interactive statistical graphics are incredibly useful both as an Interactive Exploartory Data Analysis (IEDA) tool and as a visual ‘debugger’ for building machine learning models and complex data science products such as search/recommenders, text tagging, custom playlist generators, etc. Unfortunately, it’s also somewhat of a lost art, and while modern interactive graphics alternatives exist via interactive Shiny plots, linked Plotly graphics, etc, in my experience none have approached the power, simplicity, and performance provided by Cranvas’s old-school (Desktop/Qt) linked IEDA primitives.</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>/2019/12/24/hello-world/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/12/24/hello-world/</guid>
+      <description>Welcome all - this is a blog focused on technology, science, and leadership within the technical field.
+First order of business is to give wider exposure to projects that I’ve been working on for the last few years - a complete environment for interactive EDA, a real-time version of the popular Airflow scheduling platform, etc. Look forward to posts on these coming in the next few days.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,4 @@
+require(blogdown)
+install_hugo()
+
+new_site()
