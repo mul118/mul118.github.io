@@ -1,6 +1,8 @@
 ---
-date: "2016-05-05T21:48:51-07:00"
+date: "2019-12-01"
 title: About
 ---
 
-This is a "hello world" example website for the [**blogdown**](https://github.com/rstudio/blogdown) package. The theme was forked from [@jrutheiser/hugo-lithium-theme](https://github.com/jrutheiser/hugo-lithium-theme) and modified by [Yihui Xie](https://github.com/yihui/hugo-lithium).
+Welcome all - this is a blog focused on technology, science, and leadership within the technical field.
+
+First order of business will be to give wider exposure to projects that I've been working on for the last few years - a complete environment for interactive EDA, a real-time version of the popular Airflow scheduling platform, etc. Second order of business.. profit?

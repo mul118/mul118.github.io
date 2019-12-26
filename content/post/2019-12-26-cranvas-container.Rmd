@@ -24,6 +24,7 @@ This project aims to lower the barrier to entry by:
 
 While Cranvas may not be 'the future', the IEDA ideas behind it definitely are, and it's uniquely useful at present.  It is the my hope that this project can introduce practicing Data Scientists & Analysts to the benefits and potential of IEDA, and play a (small) role in incorporating it into the next generation of DS platforms. 
 
+
 ## The Project
 
 The project is bundled into a batteries-included Docker image containing: 
